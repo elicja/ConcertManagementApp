@@ -1,0 +1,74 @@
+﻿@model ConcertInfoVm
+
+<div class="card shadow border-0 mt-4">
+    <div class="card-header bg-secondary bg-gradiant ml-0 py-3">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h2 class="text-white py-2">Create Concert</h2>
+            </div>
+        </div>
+    </div>
+    <div class="card-body p-4">
+        <form method="post" class="row">
+            <div class="border p-3 mt-4">
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="ConcertInfo.Title" class="form-control border-0 shadow" />
+                    <label asp-for="ConcertInfo.Title" class="ms-2"></label>
+                    <span asp-validation-for="ConcertInfo.Title" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="ConcertInfo.Date" class="form-control border-0 shadow" />
+                    <label asp-for="ConcertInfo.Date" class="ms-2"></label>
+                    <span asp-validation-for="ConcertInfo.Date" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="ConcertInfo.TicketPrice" class="form-control border-0 shadow" />
+                    <label asp-for="ConcertInfo.TicketPrice" class="ms-2"></label>
+                    <span asp-validation-for="ConcertInfo.TicketPrice" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="ConcertInfo.Address" class="form-control border-0 shadow" />
+                    <label asp-for="ConcertInfo.Address" class="ms-2"></label>
+                    <span asp-validation-for="ConcertInfo.Address" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <select asp-for="ConcertInfo.CityId" asp-items="@Model.Cities" class="form-select border-0 shadow">
+                        <option disabled selected>--Select City--</option>
+                    </select>
+                    <label asp-for="ConcertInfo.CityId" class="ms-2">City</label>
+                    <span asp-validation-for="ConcertInfo.CityId" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <select asp-for="ConcertInfo.MusicGenreId" asp-items="@Model.Genres" class="form-select border-0 shadow">
+                        <option disabled selected>--Select Music Genre--</option>
+                    </select>
+                    <label asp-for="ConcertInfo.MusicGenreId" class="ms-2">Music Genre</label>
+                    <span asp-validation-for="ConcertInfo.MusicGenreId" class="text-danger"></span>
+                </div>
+                <div class="form-floating py-2 col-12">
+                    <input asp-for="ConcertInfo.Description" class="form-control border-0 shadow" />
+                    <label asp-for="ConcertInfo.Description" class="ms-2"></label>
+                    <span asp-validation-for="ConcertInfo.Description" class="text-danger"></span>
+                </div>
+
+                <div class="row pt-2">
+                    <div class="col-6 col-md-3">
+                        <button type="submit" class="btn btn-primary form-control">Add New Concert</button>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <a asp-controller="ConcertInfo" asp-action="Index" class="btn btn-outline-primary border form-control">
+                            Back to List
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts
+    {
+    @{
+        <partial name="_ValidationScriptsPartial" />
+    }
+}
