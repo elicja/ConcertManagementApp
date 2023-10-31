@@ -1,5 +1,76 @@
 ﻿@model List<ConcertInfo>
 
+
+<section class="py-5">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <div class="col mb-5">
+
+                @foreach(var concert in Model)
+                {
+                    <div class="card h-100">
+                        <!-- Sale badge-->
+                        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@concert.Date.ToShortDateString()</div>
+                        <!-- Product image-->
+                        <img class="card-img-top" src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29uY2VydHxlbnwwfHwwfHx8MA%3D%3D" alt="@concert.Title" />
+                        <!-- Product details-->
+                        <div class="card-body p-4">
+                            <div class="text-center">
+                                <!-- Product name-->
+                                <h4 class="fw-bolder">@concert.Title</h4>
+                                <h5 class="fw-bolder">Music genre: @concert.MusicGenre.Value</h5>
+                                <h5 class="fw-bolder">City: @concert.City.Value</h5>
+                                <!-- Product reviews-->
+                                <div class="d-flex justify-content-center small text-warning mb-2">
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                    <div class="bi-star-fill"></div>
+                                </div>
+                                
+                                <div>
+                                    <p>@concert.Description</p>
+                                </div>
+
+                                <!-- Product price-->
+                                <p>Price: @concert.TicketPrice pln</p>
+
+                            </div>
+                        </div>
+                        <!-- Product actions-->
+                        <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                            <div class="text-center">
+                                <a asp-controller="ConcertInfo" asp-action="Edit" asp-route-concertId="@concert.Id" class="btn btn-primary mx-2">
+                                    <i class="bi bi-pen"></i> Info
+                                </a>
+                                <a asp-controller="ConcertInfo" asp-action="Edit" asp-route-concertId="@concert.Id" class="btn btn-primary mx-2">
+                                    <i class="bi bi-pen"></i> Edit
+                                </a>
+                                <a asp-controller="ConcertInfo" asp-action="Delete" asp-route-concertId="@concert.Id" class="btn btn-danger mx-2">
+                                    <i class="bi bi-trash3-fill"></i> Delete
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+
+                
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
 <div class="card shadow border-0 mt-4">
     <div class="card-header bg-secondary bg-gradiant ml-0 py-3">
         <div class="row">
