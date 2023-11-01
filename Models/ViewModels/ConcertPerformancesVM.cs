@@ -3,6 +3,6 @@
     public class ConcertPerformancesVM
     {
         public int ConcertId { get; set; }
-        public List<PerformenceInfo> Performences { get; set; }
+        public List<PerformanceInfo> Performances { get; set; }
     }
 }

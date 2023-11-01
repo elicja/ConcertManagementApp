@@ -5,8 +5,8 @@ namespace DataAccess.Interfaces
     public interface IConcertProvider
     {
         void AddNewConcert(ConcertInfo concertInfo);
-        void DeleteConcert(int id);
-        ConcertInfo Get(int id);
+        void DeleteConcert(int concertId);
+        ConcertInfo Get(int concertId);
         List<ConcertInfo> GetAll();
         void UpdateConcert(ConcertInfo concertInfo);
     }

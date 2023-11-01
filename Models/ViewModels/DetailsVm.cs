@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Models.ViewModels
 {
-    public class DetailsVm
+    public class DetailsVM
     {
         public List<Artist> Artists { get; set; }
         public List<MusicGenre> MusicGenres { get; set; }

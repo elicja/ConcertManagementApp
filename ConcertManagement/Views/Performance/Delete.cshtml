@@ -1,10 +1,10 @@
-﻿@model PerformenceInfo
+﻿@model PerformanceInfo
 
 <div class="card shadow border-0 mt-4">
     <div class="card-header bg-dark ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
-                <h2 class="text-white py-2">Delete Performence</h2>
+                <h2 class="text-white py-2">Delete Performance</h2>
             </div>
         </div>
     </div>
@@ -21,7 +21,7 @@
                         <button type="submit" class="btn btn-danger form-control">Delete Performance</button>
                     </div>
                     <div class="btn col-6 ">
-                        <a asp-controller="Performence" asp-action="Index" asp-route-concertId="@Model.ConcertId" class="btn btn-dark form-control">
+                        <a asp-controller="Performance" asp-action="Index" asp-route-concertId="@Model.ConcertId" class="btn btn-dark form-control">
                             Back to List
                         </a>
                     </div>

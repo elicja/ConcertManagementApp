@@ -2,9 +2,9 @@
 
 namespace Models.ViewModels
 {
-    public class PerformenceInfoVm
+    public class PerformanceInfoVM
     {
-        public PerformenceInfo PerformenceInfo { get; set; }
+        public PerformanceInfo PerformanceInfo { get; set; }
         public IEnumerable<SelectListItem> Artists { get; set; }
     }
 }

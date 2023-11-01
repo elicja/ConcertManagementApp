@@ -80,7 +80,7 @@ namespace DataAccess.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "PerformencesInfo",
+                name: "PerformancesInfo",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -91,15 +91,15 @@ namespace DataAccess.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_PerformencesInfo", x => x.Id);
+                    table.PrimaryKey("PK_PerformancesInfo", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_PerformencesInfo_Artists_ArtistId",
+                        name: "FK_PerformancesInfo_Artists_ArtistId",
                         column: x => x.ArtistId,
                         principalTable: "Artists",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_PerformencesInfo_ConcertsInfo_ConcertId",
+                        name: "FK_PerformancesInfo_ConcertsInfo_ConcertId",
                         column: x => x.ConcertId,
                         principalTable: "ConcertsInfo",
                         principalColumn: "Id",
@@ -117,20 +117,20 @@ namespace DataAccess.Migrations
                 column: "MusicGenreId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PerformencesInfo_ArtistId",
-                table: "PerformencesInfo",
+                name: "IX_PerformancesInfo_ArtistId",
+                table: "PerformancesInfo",
                 column: "ArtistId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_PerformencesInfo_ConcertId",
-                table: "PerformencesInfo",
+                name: "IX_PerformancesInfo_ConcertId",
+                table: "PerformancesInfo",
                 column: "ConcertId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "PerformencesInfo");
+                name: "PerformancesInfo");
 
             migrationBuilder.DropTable(
                 name: "Artists");

@@ -2,12 +2,12 @@
 
 namespace Models
 {
-    public class PerformenceInfo
+    public class PerformanceInfo
     {
         public int Id { get; set; }
 
         [ForeignKey(nameof(ConcertId))]
-        public ConcertInfo ConertInfo { get; set; }
+        public ConcertInfo ConcertInfo { get; set; }
         public int ConcertId { get; set; }
 
         [ForeignKey(nameof(ArtistId))]

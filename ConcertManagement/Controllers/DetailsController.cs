@@ -22,13 +22,13 @@ namespace ConcertManagement.Controllers
 
         public IActionResult Index()
         {
-            DetailsVm detailsVm = new DetailsVm();
+            DetailsVM detailsVM = new DetailsVM();
 
-            detailsVm.Artists = _artistProvider.GetAll();
-            detailsVm.MusicGenres = _musicGenreProvider.GetAll();
-            detailsVm.Cities = _cityProvider.GetAll();
+            detailsVM.Artists = _artistProvider.GetAll();
+            detailsVM.MusicGenres = _musicGenreProvider.GetAll();
+            detailsVM.Cities = _cityProvider.GetAll();
 
-            return View(detailsVm);
+            return View(detailsVM);
         }
 
         public IActionResult Create(DetailType type)
@@ -55,8 +55,8 @@ namespace ConcertManagement.Controllers
 
             if (detailsManagementVM.Type == DetailType.MusicGenre)
             {
-                MusicGenre genre = new MusicGenre(detailsManagementVM.Data);
-                _musicGenreProvider.Add(genre);
+                MusicGenre musicGenre = new MusicGenre(detailsManagementVM.Data);
+                _musicGenreProvider.Add(musicGenre);
             }
 
             return RedirectToAction("Index");
@@ -105,8 +105,8 @@ namespace ConcertManagement.Controllers
 
             if (type == DetailType.MusicGenre)
             {
-                MusicGenre genre = _musicGenreProvider.Get(id);
-                _musicGenreProvider.Remove(genre);
+                MusicGenre musicGenre = _musicGenreProvider.Get(id);
+                _musicGenreProvider.Remove(musicGenre);
             }
 
             return RedirectToAction("Index");

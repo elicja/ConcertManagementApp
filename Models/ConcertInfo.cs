@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
+using Microsoft.EntityFrameworkCore.Storage;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Models
@@ -6,7 +7,7 @@ namespace Models
     public class ConcertInfo
     {
         public int Id { get; set; }
-        public DateTime Date { get; set; } 
+        public DateTime Date { get; set; } = DateTime.Now;
         public double TicketPrice { get; set; }
         public string Address { get; set; }
 
@@ -23,6 +24,6 @@ namespace Models
         public string Description { get; set; }
 
         [ValidateNever]
-        public ICollection<PerformenceInfo> Performences { get; set; }
+        public ICollection<PerformanceInfo> Performances { get; set; }
     }
 }

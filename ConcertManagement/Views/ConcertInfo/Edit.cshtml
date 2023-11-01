@@ -1,4 +1,4 @@
-﻿@model ConcertInfoVm
+﻿@model ConcertInfoVM
 
 <div class="card shadow border-0 mt-4">
     <div class="card-header bg-dark ml-0 py-3">
@@ -54,11 +54,11 @@
 
                 <div class="row mt-3 text-center align-content-center">
                     <div class="col-4">
-                        <button  class="btn btn-primary form-control">Update Performance</button>
+                        <button  class="btn btn-primary form-control">Update Concert Info</button>
                     </div>
                     <div class="col-4">
-                        <a asp-controller="Performence" asp-action="Index" asp-route-concertId="@Model.ConcertInfo.Id" class="btn btn-dark form-control">
-                            Manage concert performances
+                        <a asp-controller="Performance" asp-action="Index" asp-route-concertId="@Model.ConcertInfo.Id" class="btn btn-dark form-control">
+                            Manage Concert Performances
                         </a>
                     </div>
                     <div class="col-4">

@@ -12,7 +12,7 @@ builder.Services.AddDbContext<DataDbContext>(opts =>
     opts.UseSqlServer(builder.Configuration.GetConnectionString("Default")));
 
 builder.Services.AddScoped<IConcertProvider, ConcertProvider>();
-builder.Services.AddScoped<IPerformenceProvider, PerformenceProvider>();
+builder.Services.AddScoped<IPerformanceProvider, PerformanceProvider>();
 builder.Services.AddScoped<IMusicGenreProvider, MusicGenreProvider>();
 builder.Services.AddScoped<IArtistProvider, ArtistProvider>();
 builder.Services.AddScoped<ICityProvider, CityProvider>();

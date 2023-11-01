@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(DataDbContext))]
-    [Migration("20231030144423_Init")]
+    [Migration("20231101183539_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -116,7 +116,7 @@ namespace DataAccess.Migrations
                     b.ToTable("MusicGenres");
                 });
 
-            modelBuilder.Entity("Models.PerformenceInfo", b =>
+            modelBuilder.Entity("Models.PerformanceInfo", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -140,7 +140,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("ConcertId");
 
-                    b.ToTable("PerformencesInfo");
+                    b.ToTable("PerformancesInfo");
                 });
 
             modelBuilder.Entity("Models.ConcertInfo", b =>
@@ -162,7 +162,7 @@ namespace DataAccess.Migrations
                     b.Navigation("MusicGenre");
                 });
 
-            modelBuilder.Entity("Models.PerformenceInfo", b =>
+            modelBuilder.Entity("Models.PerformanceInfo", b =>
                 {
                     b.HasOne("Models.Artist", "Artist")
                         .WithMany()
@@ -170,20 +170,20 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Models.ConcertInfo", "ConertInfo")
-                        .WithMany("Performences")
+                    b.HasOne("Models.ConcertInfo", "ConcertInfo")
+                        .WithMany("Performances")
                         .HasForeignKey("ConcertId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Artist");
 
-                    b.Navigation("ConertInfo");
+                    b.Navigation("ConcertInfo");
                 });
 
             modelBuilder.Entity("Models.ConcertInfo", b =>
                 {
-                    b.Navigation("Performences");
+                    b.Navigation("Performances");
                 });
 #pragma warning restore 612, 618
         }

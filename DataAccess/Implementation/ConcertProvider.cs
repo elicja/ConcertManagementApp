@@ -19,21 +19,21 @@ namespace DataAccess.Implementation
             List<ConcertInfo> concerts = _db.ConcertsInfo
                                          .Include(x => x.MusicGenre)
                                          .Include(x => x.City)
-                                         .Include(x => x.Performences)
+                                         .Include(x => x.Performances)
                                              .ThenInclude(x => x.Artist)
                                              .ToList();
 
             return concerts;
         }
 
-        public ConcertInfo Get(int id)
+        public ConcertInfo Get(int concertId)
         {
             ConcertInfo concert = _db.ConcertsInfo
                                          .Include(x => x.MusicGenre)
                                          .Include(x => x.City)
-                                         .Include(x => x.Performences)
+                                         .Include(x => x.Performances)
                                              .ThenInclude(x => x.Artist)
-                                             .FirstOrDefault(x => x.Id == id);
+                                             .FirstOrDefault(x => x.Id == concertId);
 
             return concert;
         }
@@ -50,9 +50,9 @@ namespace DataAccess.Implementation
             _db.SaveChanges();
         }
 
-        public void DeleteConcert(int id)
+        public void DeleteConcert(int concertId)
         {
-            ConcertInfo concert = _db.ConcertsInfo.FirstOrDefault(x => x.Id == id);
+            ConcertInfo concert = _db.ConcertsInfo.FirstOrDefault(x => x.Id == concertId);
             _db.ConcertsInfo.Remove(concert);
             _db.SaveChanges();
         }

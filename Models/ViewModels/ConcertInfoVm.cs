@@ -2,7 +2,7 @@
 
 namespace Models.ViewModels
 {
-    public class ConcertInfoVm
+    public class ConcertInfoVM
     {
         public ConcertInfo ConcertInfo { get; set; }
         public IEnumerable<SelectListItem> Genres { get; set; }

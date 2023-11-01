@@ -39,22 +39,22 @@ namespace ConcertManagement.Controllers
 
         public IActionResult Create()
         {
-            ConcertInfoVm concertInfoVm = new ConcertInfoVm();
-            concertInfoVm.ConcertInfo = new ConcertInfo();
+            ConcertInfoVM concertInfoVM = new ConcertInfoVM();
+            concertInfoVM.ConcertInfo = new ConcertInfo();
 
-            concertInfoVm.Cities = _cityProvider.GetAll().Select(c => new SelectListItem()
+            concertInfoVM.Cities = _cityProvider.GetAll().Select(c => new SelectListItem()
             {
                 Text = c.Value,
                 Value = c.Id.ToString()
             });
 
-            concertInfoVm.Genres = _musicGenresProvider.GetAll().Select(x => new SelectListItem()
+            concertInfoVM.Genres = _musicGenresProvider.GetAll().Select(x => new SelectListItem()
             {
                 Text = x.Value,
                 Value = x.Id.ToString()
             }); 
 
-            return View(concertInfoVm);
+            return View(concertInfoVM);
         }
 
         [HttpPost]
@@ -76,28 +76,28 @@ namespace ConcertManagement.Controllers
                 return NotFound();
             }
 
-            ConcertInfoVm concertInfoVm = new ConcertInfoVm();
-            concertInfoVm.ConcertInfo = _concertProvider.Get(concertId);
+            ConcertInfoVM concertInfoVM = new ConcertInfoVM();
+            concertInfoVM.ConcertInfo = _concertProvider.Get(concertId);
 
-            concertInfoVm.Cities = _cityProvider.GetAll().Select(c => new SelectListItem()
+            concertInfoVM.Cities = _cityProvider.GetAll().Select(c => new SelectListItem()
             {
                 Text = c.Value,
                 Value = c.Id.ToString()
             });
 
-            concertInfoVm.Genres = _musicGenresProvider.GetAll().Select(x => new SelectListItem()
+            concertInfoVM.Genres = _musicGenresProvider.GetAll().Select(x => new SelectListItem()
             {
                 Text = x.Value,
                 Value = x.Id.ToString()
             });
 
 
-            if (concertInfoVm == null)
+            if (concertInfoVM == null)
             {
                 return NotFound();
             }
 
-            return View(concertInfoVm);
+            return View(concertInfoVM);
         }
 
         [HttpPost]

@@ -22,7 +22,7 @@ namespace DataAccess.Data
         public DbSet<Artist> Artists { get; set; }
         public DbSet<City> Cities { get; set; }
         public DbSet<ConcertInfo> ConcertsInfo { get; set; }
-        public DbSet<PerformenceInfo> PerformencesInfo { get; set; }
+        public DbSet<PerformanceInfo> PerformancesInfo { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder options)
