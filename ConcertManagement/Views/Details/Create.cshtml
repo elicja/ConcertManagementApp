@@ -15,7 +15,7 @@
             <input asp-for="@Model.Data.Id" hidden />
             <div class="border p-3 mt-4">
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="@Model.Data.Value" class="form-control border-0 shadow" />
+                    <input asp-for="@Model.Data.Value" class="form-control border-0 shadow" required />
                     <label asp-for="@Model.Data.Value" class="ms-2"></label>
                     <span asp-validation-for="@Model.Data.Value" class="text-danger"></span>
                 </div>
