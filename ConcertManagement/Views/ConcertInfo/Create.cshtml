@@ -17,7 +17,7 @@
                     <span asp-validation-for="ConcertInfo.Title" class="text-danger"></span>
                 </div>
                 <div class="form-floating py-2 col-12">
-                    <input asp-for="ConcertInfo.Date" class="form-control border-0 shadow" />
+                    <input asp-for="ConcertInfo.Date" class="form-control border-0 shadow" value=@DateTime.Now.Date />
                     <label asp-for="ConcertInfo.Date" class="ms-2"></label>
                     <span asp-validation-for="ConcertInfo.Date" class="text-danger"></span>
                 </div>

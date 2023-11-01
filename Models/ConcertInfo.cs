@@ -6,7 +6,7 @@ namespace Models
     public class ConcertInfo
     {
         public int Id { get; set; }
-        public DateTime Date { get; set; }
+        public DateTime Date { get; set; } 
         public double TicketPrice { get; set; }
         public string Address { get; set; }
 

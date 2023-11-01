@@ -2,12 +2,12 @@
 
 
 <section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-3 row-cols-md-4 row-cols-xl-3 justify-content-center">
+    <div class="container px-4 px-lg-8 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-3  justify-content-center">
             
-                @foreach(var concert in Model)
+                @foreach(var concert in Model.OrderByDescending(x=>x.Id))
                 {
-                    <div class="card h-100 m-5">
+                    <div class="card col-3 h-100 m-5">
                         <!-- Sale badge-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@concert.Date.ToShortDateString()</div>
                         <!-- Product image-->
@@ -16,7 +16,7 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h3 class="fw-bolder ">@concert.Title</h3>
+                            <h4 class="fw-bolder ">@concert.Title</h4>
                                 
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
