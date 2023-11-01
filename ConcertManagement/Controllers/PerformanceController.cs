@@ -31,17 +31,17 @@ namespace ConcertManagement.Controllers
 
         public IActionResult Create(int concertId)
         {
-            PerformanceInfoVM performenceInfoVM = new PerformanceInfoVM();
-            performenceInfoVM.PerformanceInfo = new PerformanceInfo();
-            performenceInfoVM.PerformanceInfo.ConcertId = concertId;
+            PerformanceInfoVM performanceInfoVM = new PerformanceInfoVM();
+            performanceInfoVM.PerformanceInfo = new PerformanceInfo();
+            performanceInfoVM.PerformanceInfo.ConcertId = concertId;
 
-            performenceInfoVM.Artists = _artistProvider.GetAll().Select(c => new SelectListItem()
+            performanceInfoVM.Artists = _artistProvider.GetAll().Select(c => new SelectListItem()
             {
                 Text = c.Value,
                 Value = c.Id.ToString()
             });
 
-            return View(performenceInfoVM);
+            return View(performanceInfoVM);
         }
 
         [HttpPost]
