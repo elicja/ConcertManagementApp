@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'concertmanagementappbyala'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_97EA0FF7864543799353A0BC51F4A6E2 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_385A71B0449F49FB940EFB61A1F2B5AE }}
           package: .
