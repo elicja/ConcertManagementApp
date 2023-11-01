@@ -1,7 +1,7 @@
 ﻿@model ConcertInfoVm
 
 <div class="card shadow border-0 mt-4">
-    <div class="card-header bg-secondary bg-gradiant ml-0 py-3">
+    <div class="card-header bg-dark ml-0 py-3">
         <div class="row">
             <div class="col-12 text-center">
                 <h2 class="text-white py-2">Edit Concert</h2>
@@ -57,12 +57,12 @@
                         <button  class="btn btn-primary form-control">Update Performance</button>
                     </div>
                     <div class="col-4">
-                        <a asp-controller="Performence" asp-action="Index" asp-route-concertId="@Model.ConcertInfo.Id" class="btn btn-outline-secondary form-control">
+                        <a asp-controller="Performence" asp-action="Index" asp-route-concertId="@Model.ConcertInfo.Id" class="btn btn-dark form-control">
                             Manage concert performances
                         </a>
                     </div>
                     <div class="col-4">
-                        <a asp-controller="ConcertInfo" asp-action="Index" class="btn btn-outline-secondary form-control">
+                        <a asp-controller="ConcertInfo" asp-action="Index" class="btn btn-secondary form-control">
                             Back to List
                         </a>
                     </div>

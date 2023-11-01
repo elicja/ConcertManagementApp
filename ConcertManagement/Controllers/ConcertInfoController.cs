@@ -25,6 +25,18 @@ namespace ConcertManagement.Controllers
             return View(concertsInfo);
         }
 
+        public IActionResult Management()
+        {
+            List<ConcertInfo> concertsInfo = _concertProvider.GetAll().ToList();
+            return View(concertsInfo);
+        }
+
+        public IActionResult Details(int concertId)
+        {
+            ConcertInfo concertInfo = _concertProvider.Get(concertId);
+            return View(concertInfo);
+        }
+
         public IActionResult Create()
         {
             ConcertInfoVm concertInfoVm = new ConcertInfoVm();

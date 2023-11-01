@@ -1,0 +1,67 @@
+﻿@model ConcertInfo
+
+<div class="row h-100 d-flex align-items-center justify-content-center">
+    <div class="card h-75 m-5 p-5 col-6 ">
+        <!-- Sale badge-->
+        <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@Model.Date.ToShortDateString()</div>
+        <!-- Product details-->
+        <div class="card-body border border-secondary">
+            <!-- Product image-->
+            <img class="card-img-top" src="https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?auto=format&fit=crop&q=80&w=1000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8Y29uY2VydHxlbnwwfHwwfHx8MA%3D%3D" alt="@Model.Title" />
+
+            <div class="text-center">
+                <!-- Product name-->
+                <h1 class="fw-bolder ">@Model.Title</h1>
+
+                <div class="text-secondary">
+                    <!-- Product reviews-->
+                    <div class="d-flex justify-content-center small text-warning mb-2">
+                        <div class="bi-star-fill"></div>
+                        <div class="bi-star-fill"></div>
+                        <div class="bi-star-fill"></div>
+                        <div class="bi-star-fill"></div>
+                        <div class="bi-star-fill"></div>
+                    </div>
+
+                    <div class="row fw-bolder ">
+                        <h3 class="col-6">Music genre</h3>
+                        <h3 class="col-6">@Model.MusicGenre.Value</h3>
+                    </div>
+
+                    <div class="row fw-bolder">
+                        <h3 class="col-6 c">City</h3>
+                        <h3 class="col-6">@Model.City.Value</h3>
+                    </div>
+
+                    <div class="row fw-bolder">
+                        <h3 class="col-6 c">Address</h3>
+                        <h3 class="col-6">@Model.Address</h3>
+                    </div>
+
+                    <div class="row fw-bolder">
+                        <h3 class="col-6 c">Ticket price</h3>
+                        <h3 class="col-6">@Model.TicketPrice pln</h3>
+                    </div>
+                    <hr />
+                    <h2>Performances</h2>
+                    <div class="row fw-bold text-dark">
+                        @foreach(var performance in Model.Performences)
+                        {
+                            <h3 class="col-6 c">@performance.Artist.Value</h3>
+                            <h3 class="col-6">@performance.StartHour</h3>
+                        }                       
+                    </div>
+
+
+                    <div class="mt-5 fw-bolder">
+                        <p>@Model.Description</p>
+                    </div>
+                </div>
+
+               
+
+
+            </div>
+        </div>        
+    </div>
+</div>

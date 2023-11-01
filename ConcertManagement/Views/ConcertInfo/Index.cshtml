@@ -3,12 +3,11 @@
 
 <section class="py-5">
     <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <div class="col mb-5">
-
+        <div class="row gx-4 gx-lg-5 row-cols-3 row-cols-md-4 row-cols-xl-3 justify-content-center">
+            
                 @foreach(var concert in Model)
                 {
-                    <div class="card h-100">
+                    <div class="card h-100 m-5">
                         <!-- Sale badge-->
                         <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">@concert.Date.ToShortDateString()</div>
                         <!-- Product image-->
@@ -17,9 +16,8 @@
                         <div class="card-body p-4">
                             <div class="text-center">
                                 <!-- Product name-->
-                                <h4 class="fw-bolder">@concert.Title</h4>
-                                <h5 class="fw-bolder">Music genre: @concert.MusicGenre.Value</h5>
-                                <h5 class="fw-bolder">City: @concert.City.Value</h5>
+                                <h3 class="fw-bolder ">@concert.Title</h3>
+                                
                                 <!-- Product reviews-->
                                 <div class="d-flex justify-content-center small text-warning mb-2">
                                     <div class="bi-star-fill"></div>
@@ -28,140 +26,34 @@
                                     <div class="bi-star-fill"></div>
                                     <div class="bi-star-fill"></div>
                                 </div>
-                                
-                                <div>
-                                    <p>@concert.Description</p>
+
+                                <div class="row fw-bolder ">                                    
+                                    <h5 >@concert.MusicGenre.Value</h5>
                                 </div>
 
+                                <div class="row fw-bolder">                                   
+                                    <h5>@concert.City.Value</h5>
+                                </div>
+                                
+                               
+
                                 <!-- Product price-->
-                                <p>Price: @concert.TicketPrice pln</p>
+                                <h3>Price @concert.TicketPrice PLN</h3>
 
                             </div>
                         </div>
                         <!-- Product actions-->
                         <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <a asp-controller="ConcertInfo" asp-action="Edit" asp-route-concertId="@concert.Id" class="btn btn-primary mx-2">
-                                    <i class="bi bi-pen"></i> Info
-                                </a>
-                                <a asp-controller="ConcertInfo" asp-action="Edit" asp-route-concertId="@concert.Id" class="btn btn-primary mx-2">
-                                    <i class="bi bi-pen"></i> Edit
-                                </a>
-                                <a asp-controller="ConcertInfo" asp-action="Delete" asp-route-concertId="@concert.Id" class="btn btn-danger mx-2">
-                                    <i class="bi bi-trash3-fill"></i> Delete
-                                </a>
+                                <a asp-controller="ConcertInfo" asp-action="Details" asp-route-concertId="@concert.Id" class="btn btn-secondary mx-2">
+                                    <i class="bi bi-pen"></i> See more details
+                                </a>                                
                             </div>
                         </div>
                     </div>
                 }
-
-
                 
-            </div>
+            
         </div>
     </div>
 </section>
-
-
-
-
-
-
-
-
-
-
-<div class="card shadow border-0 mt-4">
-    <div class="card-header bg-secondary bg-gradiant ml-0 py-3">
-        <div class="row">
-            <div class="col-12 text-center">
-                <h2 class="text-white py-2">Concert List</h2>
-            </div>
-        </div>
-    </div>
-    <div class="card-body p-4">
-        <div class="row pb-3">
-            <div class="col-6">
-            </div>
-            <div class="col-6 text-end">
-                <a asp-controller="ConcertInfo" asp-action="Create" class="btn btn-primary">
-                    <i class="bi bi-plus-circle-fill"></i> Add Concert
-                </a>
-            </div>
-        </div>
-
-        <table class="table table-bordered table-striped">
-            <thead>
-                <tr>
-                    <th>
-                        Concert Name
-                    </th>
-                    <th>
-                        Ticket Price
-                    </th>
-                    <th>
-                        Date
-                    </th>
-                    <th>
-                        Address
-                    </th>
-                    <th>
-                        City
-                    </th>
-                    <th>
-                        Music Genre
-                    </th>
-                    <th>
-                        Description
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var concert in Model.ToList())
-                {
-                    <tr>
-                        <td>@concert.Title</td>
-                        <td>
-                            @concert.TicketPrice
-                        </td>
-                        <td>
-                            @concert.Date
-                        </td>
-                        <td>
-                            @concert.Address
-                        </td>
-                        <td>
-                            @concert.City.Value
-                        </td>
-                        <td>
-                            @concert.MusicGenre.Value
-                        </td>
-                        <td>
-                            @concert.Description
-                        </td>
-
-                        @foreach (var performence in concert.Performences)
-                        {
-                            <td>
-                                @performence.Artist.Value 
-                                <br></br>
-                                @performence.StartHour
-                            </td>
-                        }
-
-                        <td>
-                            <div class="w-75 btn-group" role="group">
-                                <a asp-controller="ConcertInfo" asp-action="Edit" asp-route-concertId="@concert.Id" class="btn btn-primary mx-2">
-                                    <i class="bi bi-pen"></i> Edit
-                                </a>
-                                <a asp-controller="ConcertInfo" asp-action="Delete" asp-route-concertId="@concert.Id" class="btn btn-danger mx-2">
-                                    <i class="bi bi-trash3-fill"></i> Delete
-                                </a>
-                            </div>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </div>
-</div>

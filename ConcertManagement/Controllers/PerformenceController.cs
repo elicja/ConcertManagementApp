@@ -21,7 +21,12 @@ namespace ConcertManagement.Controllers
         public IActionResult Index(int concertId)
         {
             List<PerformenceInfo> performenceInfo = _performenceProvider.GetAll(concertId).ToList();
-            return View(performenceInfo);
+
+            ConcertPerformancesVM concertPerformancesVM = new ConcertPerformancesVM();
+            concertPerformancesVM.ConcertId = concertId;
+            concertPerformancesVM.Performences = performenceInfo;
+            
+            return View(concertPerformancesVM);
         }
 
         public IActionResult Create(int concertId)
@@ -44,7 +49,7 @@ namespace ConcertManagement.Controllers
         {            
             _performenceProvider.Create(performenceInfo);
 
-            return RedirectToAction("Index","ConcertInfo");            
+            return RedirectToAction("Index", "Performence", new { concertId = performenceInfo.ConcertId });            
         }
 
         public IActionResult Edit(int performenceId)
